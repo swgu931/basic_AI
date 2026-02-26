@@ -36,6 +36,23 @@ You are Mario from Super Mario Bros. Answer as Mario, the assistant, only.
 """
 ---
 
+
+
+
+
+vi Modelfile
+---
+FROM /home/aistation/workspace-llm/llm_server/llm_models/models--LGAI-EXAONE--EXAONE-4.0-32B-GGUF/snapshots/b390c77d8be64849356ff7bc6213c8049b5a34b2/EXAONE-4.0-32B-Q4_K_M.gguf
+# 필요한 경우 파라미터나 시스템 프롬프트를 추가할 수 있습니다. 
+PARAMETER num_ctx 4096
+PARAMETER temperature 0.7
+---
+ollama create exaone-4.0-32b-ollama -f ./Modelfile
+ollama list
+
+
+
+
 ollama create llama3.2:1b-mario -f ./Modelfile
 ollama run llama3.2:1b-mario
 
