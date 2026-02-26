@@ -4,12 +4,29 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 # Ollama serve in case of systemctl
 
-sudo systemctl edit ollama.service
+sudo systemctl edit ollama.service 
+혹은
+sudo vi /etc/systemd/system/ollama.service
 
 ```
-ini
 [Service]
 Environment="OLLAMA_HOST=0.0.0.0"
+Environment="OLLAMA_DEBUG=1"
+           
+OLLAMA_CONTEXT_LENGTH      
+OLLAMA_KEEP_ALIVE         
+OLLAMA_MAX_LOADED_MODELS   
+OLLAMA_MAX_QUEUE           
+OLLAMA_MODELS              
+OLLAMA_NUM_PARALLEL        
+OLLAMA_NOPRUNE             
+OLLAMA_ORIGINS             
+OLLAMA_SCHED_SPREAD        
+OLLAMA_FLASH_ATTENTION     
+OLLAMA_KV_CACHE_TYPE       
+OLLAMA_LLM_LIBRARY         
+OLLAMA_GPU_OVERHEAD        
+OLLAMA_LOAD_TIMEOUT 
 ```
 
 sudo systemctl stop ollama
