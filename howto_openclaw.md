@@ -280,3 +280,47 @@ openclaw
 팁: 설정을 변경한 후 적용하기 위해 재시작하는 것이라면, openclaw doctor --fix 명령어를 실행하는 것만으로도 대부분의 설정 꼬임이 풀리고 게이트웨이가 안정적으로 로드됩니다.
 ```
 
+## models & agent
+~/.openclaw/openclaw.json
+```
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://10.232.183.148:11434",
+        "apiKey": "ollama",
+        "models": [
+          {
+            "id": "gemma3:27b",
+            "name": "Gemma 3 27B"
+          },
+	        {
+	          "id": "qwen3.5:35b",
+            "name": "Gwen 3.5 35B"
+	        }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "ollama/qwen3.5:35b"
+      },
+      "models": {
+        "ollama/gemma3:27b": {},
+        "ollama/qwen3.5:35b": {}
+      },
+      "workspace": "/home/gusewan/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+
+
+```
+
