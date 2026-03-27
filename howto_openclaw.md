@@ -298,17 +298,32 @@ openclaw
             "name": "Gwen 3.5 35B"
 	        }
         ]
+      },
+      "custom": {
+        "baseUrl": "https://azureopenai-swgu.openai.azure.com/openai/v1",
+        "apiKey": "97kumr",
+        "authHeader": false,
+        "headers": {
+          "api-key": "97kumr"
+        },
+        "models": [
+          {
+            "id": "gpt-4.1-nano",
+            "name": "Azure GPT-4.1-nano"
+          }
+        ]
       }
     }
   },
   "agents": {
     "defaults": {
       "model": {
-        "primary": "ollama/qwen3.5:35b"
+        "primary": "custom/gpt-4.1-nano"
       },
       "models": {
         "ollama/gemma3:27b": {},
         "ollama/qwen3.5:35b": {}
+        "custom/gpt-4.1-nano": {}
       },
       "workspace": "/home/gusewan/.openclaw/workspace",
       "compaction": {
